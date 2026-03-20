@@ -84,37 +84,6 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 385.2841703072147,
-			"y": 1276.9416207678487,
-			"rotation": 0,
-			"isLocked": false,
-			"opacity": 1,
-			"meta": {},
-			"id": "shape:up-ROl0UU6yClQWlcWAsH",
-			"type": "draw",
-			"props": {
-				"segments": [
-					{
-						"type": "free",
-						"path": "AAAAAAAAAAAAAAA/AAB7wgAAAABSvAAAAACAwgAAe0J9xgAAUjx7wgAAAABSxAAAAACAwgAAVERmxQAAUkRUxAAAXDx7wgAAUkBUxAAAUkB7wgAAUkBSxAAAUjyAwgAAV0BSwAAAUjxSvAAAe0JSvAAAUkBUxAAAUjxSvAAAV0AAAAAAe0JSwAAAe0JSwAAAVEQAAAAAUjxSvAAAUjxSvAAAe0IAAAAAVEQAAAAAe0IAAAAAe0JXwAAAVERSwAAAe0IAAAAAgEIAAAAAZkUAAAAAVEQAAAAAe0IAAAAAe0IAAAAAgEJSwAAAUkRSvAAAgEIAAAAAe0IAAAAAUkAAAAAAe0IAAAAAgEIAAAAAUjwAAAAAUkAAAAAAe0IAAAAAgEIAAAAAe0IAAAAAgEIAAAAAe0IAAAAAUkQAAAAAgEIAAAAAe0IAAAAAUjwAAAAAUkAAAAAAgEIAAAAAUjxSQAAAUkBSPAAAUjxSQAAAVESAQgAAe0J7QgAAUkBURAAAAAB7QgAAUjx7QgAAV0BURAAAAABSPAAAAABSQAAAUkB7QgAAUjyAQgAAAAB7QgAAAABURAAAAAB7QgAAAAB7QgAAAACAQgAAAAB7QgAAAABSQAAAAABSPAAAAACAQgAAAAB7QgAAAABSRAAAAACAQgAAAAB7QgAAAAB7QgAAAACAQgAAAABSRAAAAACAQgAAAAB7QgAAAAB7QgAAAABXQAAAAAB7QgAAAAB7QgAAAACAQgAAAAB7QgAAAABSRAAAUsBcPAAAUrx7QgAAV8BSRAAAUsCAQgAAe8JSRAAAUsB7QgAAV8CAQgAAe8JSRAAAUsCAQgAAV8BSRAAAUrxSPAAAUsCAQgAAUrxSQAAAAAB7QgAAUrxSPAAAUsBSQAAAUrxcPAAAV8BSQAAAAAB7QgAAUrxSPAAAUsBSPAAAAABXQAAAAABSPAAAUrxSQAAAUrxSPAAAUsBSQAAAXLxSPAAAAACAQgAAUsBSPAAAUrxSQAAAUrxSPAAAUsBSQAAAUrxcPAAAgMJSQAAAUsB7QgAA"
-					}
-				],
-				"color": "black",
-				"fill": "none",
-				"dash": "draw",
-				"size": "m",
-				"isComplete": true,
-				"isClosed": false,
-				"isPen": false,
-				"scale": 1,
-				"scaleX": 1,
-				"scaleY": 1
-			},
-			"parentId": "page:page",
-			"index": "aCTbgEuV",
-			"typeName": "shape"
-		},
-		{
 			"x": 428.2187309265137,
 			"y": 624.5999626159669,
 			"rotation": 0,
@@ -208,9 +177,9 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -72.83019553653982,
-			"y": -879.0763548525919,
-			"z": 0.739948970461749,
+			"x": 589.5637061937284,
+			"y": -572.9964149551924,
+			"z": 0.412884112019008,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -311,37 +280,6 @@
 			"id": "instance_page_state:page:page",
 			"pageId": "page:page",
 			"typeName": "instance_page_state"
-		},
-		{
-			"x": 422.043457817634,
-			"y": 1183.9622525419081,
-			"rotation": 0,
-			"isLocked": false,
-			"opacity": 1,
-			"meta": {},
-			"id": "shape:dogcf2op6NuKpR2-hKAC-",
-			"type": "draw",
-			"props": {
-				"segments": [
-					{
-						"type": "free",
-						"path": "AAAAAAAAAAAAAAA/UkBSRAAAAACAQgAAAABmRQAAAAB9RgAAVERTSAAAUkRpRQAAVERTSAAAe0J7RgAAUkRTSAAAVERpRQAAUkRTSAAAVER7RgAAUkRTSAAAVERTSAAAUkR9RgAAVERTSAAAe0JmRQAA3UhaUgAAaUVMTwAAU0itTQAAZkWSSwAAaUWSSwAAUkR8SgAAaUXySQAAUkTzSQAAUkBSSAAAaUXzSQAAUkR8SgAAV0CSRwAAUkBTSAAAUkRTSAAAV0BTSAAAAABTSAAAUkBmRQAAUkBTSAAAAABpRQAAUkB7QgAAV0B9RgAAUjxmRQAAUkBURAAAAAB7QgAAAABSQAAAAABSPAAAUkBcPAAA"
-					}
-				],
-				"color": "black",
-				"fill": "none",
-				"dash": "draw",
-				"size": "m",
-				"isComplete": true,
-				"isClosed": false,
-				"isPen": false,
-				"scale": 1,
-				"scaleX": 1,
-				"scaleY": 1
-			},
-			"parentId": "page:page",
-			"index": "aBwnKJtV",
-			"typeName": "shape"
 		},
 		{
 			"x": 119.29998779296875,
@@ -573,14 +511,11 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {
-				"tldraw:dash": "draw",
-				"tldraw:size": "m"
-			},
+			"stylesForNextShape": {},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "cross",
+				"type": "default",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -608,7 +543,7 @@
 			"isFocused": true,
 			"devicePixelRatio": 1.25,
 			"isCoarsePointer": false,
-			"isHoveringCanvas": false,
+			"isHoveringCanvas": true,
 			"openMenus": [],
 			"isChangingStyle": false,
 			"isReadonly": false,

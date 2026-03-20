@@ -14,7 +14,7 @@ const page = () => {
       <div className="hidden h-full w-full rounded-2xl bg-gray-300 md:block"></div>
 
       {/* form card  */}
-      <Card className="">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-3xl">Create an account.</CardTitle>
           <CardDescription className="text-lg">

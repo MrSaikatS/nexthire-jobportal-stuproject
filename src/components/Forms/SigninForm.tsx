@@ -3,18 +3,19 @@
 import { SigninFormType } from "@/lib/types";
 import { signinFormSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2Icon } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Button } from "../shadcnui/button";
-
 import { Checkbox } from "../shadcnui/checkbox";
 import { Field, FieldError, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 
-const SigninForm = () => {
+const SignupForm = () => {
   const {
-    control,
     handleSubmit,
+    control,
+    reset,
     formState: { isSubmitting },
   } = useForm({
     resolver: zodResolver(signinFormSchema),
@@ -23,54 +24,61 @@ const SigninForm = () => {
       password: "",
       rememberMe: true,
     },
+    mode: "all",
   });
 
-  const handleSigninFormSubmit = (fValues: SigninFormType) => {
+  const handleSignupFormSubmit = async (fValues: SigninFormType) => {
+    await new Promise<void>((r) => setTimeout(r, 3000));
+
     try {
-      console.log(fValues);
-      toast.success("success");
-    } catch (error) {
-      console.error(error);
-      toast.error("error");
+      toast.success("successfully signup");
+
+      reset();
+    } catch (err) {
+      console.error(err);
+
+      toast.error("signup failed");
     }
+
+    console.log(fValues);
   };
 
   return (
     <form
-      onSubmit={handleSubmit(handleSigninFormSubmit)}
-      className="space-y-4 py-4">
-      {/* Email field  */}
+      onSubmit={handleSubmit(handleSignupFormSubmit)}
+      className="space-y-4">
+      {/* email field  */}
       <Controller
         name="email"
         control={control}
         render={({ field, fieldState }) => (
           <Field {...field}>
-            <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+            <FieldLabel htmlFor={field.name}>First Name</FieldLabel>
             <Input
               {...field}
               id={field.name}
               aria-invalid={fieldState.invalid}
               placeholder="Enter Your Email"
-              className="rounded-lg"
+              className="py-6"
             />
             {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
           </Field>
         )}
       />
 
-      {/* password field  */}
+      {/* Password field  */}
       <Controller
         name="password"
         control={control}
         render={({ field, fieldState }) => (
           <Field {...field}>
-            <FieldLabel htmlFor={field.name}>Password</FieldLabel>
+            <FieldLabel htmlFor={field.name}>Passowrd</FieldLabel>
             <Input
               {...field}
               id={field.name}
               aria-invalid={fieldState.invalid}
-              placeholder="Enter Your password"
-              className="rounded-lg"
+              placeholder="Enter Your Password"
+              className="py-6"
             />
             {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
           </Field>
@@ -89,6 +97,7 @@ const SigninForm = () => {
               id="rememberMe"
               checked={field.value}
               onCheckedChange={field.onChange}
+              className="border border-blue-500 data-checked:border-blue-500 data-checked:bg-blue-500"
             />
             <FieldLabel htmlFor="rememberMe">Remember Me</FieldLabel>
             {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -98,12 +107,16 @@ const SigninForm = () => {
 
       <Button
         type="submit"
-        className="w-full rounded-lg"
-        disabled={isSubmitting}>
-        {isSubmitting ? "Logging..." : "Login"}
+        className="w-full bg-blue-500 py-6 text-white">
+        {isSubmitting ?
+          <>
+            <Loader2Icon className="animate-spin" />
+            Sign Up...
+          </>
+        : "Sign Up"}
       </Button>
     </form>
   );
 };
 
-export default SigninForm;
+export default SignupForm;
