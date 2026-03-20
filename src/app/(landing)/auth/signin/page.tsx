@@ -7,11 +7,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/shadcnui/card";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Signin Page - NextHire",
+  description: "Signin page of NextHire application",
+};
 
 const page = () => {
   return (
-    <section className="grid h-dvh grid-cols-1 place-items-center gap-6 py-4 md:grid-cols-2">
+    <section className="grid w-full grid-cols-1 place-items-center gap-6 py-4 md:grid-cols-2">
       <div className="hidden h-full w-full rounded-2xl bg-gray-300 md:block"></div>
 
       {/* form card  */}

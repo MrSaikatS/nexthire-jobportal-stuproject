@@ -214,7 +214,8 @@ const SignupForm = () => {
 
       <Button
         type="submit"
-        className="w-full bg-blue-500 py-6 text-white">
+        className="w-full bg-blue-500 py-6 text-white"
+        disabled={isSubmitting}>
         {isSubmitting ?
           <>
             <Loader2Icon className="animate-spin" />
