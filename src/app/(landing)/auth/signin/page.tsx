@@ -1,12 +1,13 @@
-import SignupForm from "@/components/Forms/SignupForm";
+import SigninWithGoogleButton from "@/components/Buttons/SigninWithGoogleButton";
+import SigninForm from "@/components/Forms/SigninForm";
 import FormSideBrandContentSection from "@/components/Section/FormSideBrandContentSection";
 import { Separator } from "@/components/shadcnui/separator";
 import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Signup Page - NextHire",
-  description: "Signup page of NextHire application",
+  title: "Signin Page - NextHire",
+  description: "Signin page of NextHire application",
 };
 
 const page = () => {
@@ -15,7 +16,7 @@ const page = () => {
       {/* Left branding panel hidden on mobile */}
       <FormSideBrandContentSection />
 
-      {/* Right form panel */}
+      {/*  Right form panel */}
       <div className="flex flex-1 flex-col">
         {/* Centered form */}
         <div className="flex flex-1 items-center justify-center px-6 pb-16">
@@ -23,13 +24,18 @@ const page = () => {
             {/* Heading */}
             <div className="space-y-1">
               <h2 className="text-[1.75rem] font-semibold tracking-tight">
-                Ready to take the next step?
+                Welcome Back
               </h2>
-              <p className="text-foreground/50 text-sm">Create an account.</p>
+              <p className="text-foreground/50 text-sm">
+                Sign in to your account
+              </p>
             </div>
 
-            {/* signup form */}
-            <SignupForm />
+            {/* signin with google button */}
+            <SigninWithGoogleButton />
+
+            {/* signin form */}
+            <SigninForm />
 
             {/* Divider */}
             <div className="my-4 grid grid-cols-5 place-items-center">
@@ -38,13 +44,13 @@ const page = () => {
               <Separator className="col-span-2" />
             </div>
 
-            {/* already have account? Sign in link */}
+            {/* don't have account? signup link */}
             <p className="text-center text-sm">
-              Already have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link
-                href="/auth/signin"
+                href="/auth/signup"
                 className="text-blue-400 transition-colors hover:text-blue-300">
-                Login now
+                Create one here
               </Link>
             </p>
           </div>

@@ -15,18 +15,22 @@ const Header = () => {
       aria-label="app-header">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         {/* Logo  */}
-        <Link
-          href={"/"}
-          aria-label="Next-Hire-Logo">
-          <Image
-            src={"/app-logo.png"}
-            alt="NextHire-Logo"
-            height={100}
-            width={100}
-            loading="eager"
-            className="h-10 w-auto"
-          />
-        </Link>
+
+        {/* swith nav Logo  */}
+        {path === "/auth/signup" || path === "/auth/signin" ? null : (
+          <Link
+            href={"/"}
+            aria-label="Next-Hire-Logo">
+            <Image
+              src={"/app-logo.png"}
+              alt="NextHire-Logo"
+              height={100}
+              width={100}
+              loading="eager"
+              className="h-10 w-auto"
+            />
+          </Link>
+        )}
 
         {/* swith nav Items  */}
         {path === "/auth/signup" || path === "/auth/signin" ?
