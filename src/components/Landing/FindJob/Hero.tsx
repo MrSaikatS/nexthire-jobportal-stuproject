@@ -1,3 +1,4 @@
+import SplitText from "@/components/SplitText";
 import {
   BriefcaseBusinessIcon,
   ChevronRightIcon,
@@ -14,11 +15,15 @@ const Hero = () => {
       </div>
 
       {/* main heading  */}
-      <h1 className="text-2xl font-bold md:text-4xl lg:text-6xl">
+      <SplitText
+        tag="h1"
+        className="text-2xl font-bold md:text-4xl lg:text-6xl"
+        duration={0.8}
+        delay={30}>
         Where <span className="text-blue-600 dark:text-blue-500">Talent</span>{" "}
         Meets{" "}
         <span className="text-blue-600 dark:text-blue-500">Opportunity</span>
-      </h1>
+      </SplitText>
 
       {/* sub heading  */}
       <h2 className="text-lg font-light md:text-2xl">
