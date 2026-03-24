@@ -1,3 +1,4 @@
+import SplitText from "@/components/SplitText";
 import {
   BriefcaseBusinessIcon,
   ChevronRightIcon,
@@ -15,11 +16,15 @@ const PostHero = () => {
       </div>
 
       {/* Heading  */}
-      <h1 className="text-2xl font-bold md:text-4xl lg:text-6xl">
-        The <span className="text-blue-600 dark:text-blue-500">Future</span> of{" "}
-        <span className="text-blue-600 dark:text-blue-500">Hiring</span> Begins
-        Now
-      </h1>
+      <SplitText
+        tag="h1"
+        className="text-2xl font-bold md:text-4xl lg:text-6xl"
+        duration={0.8}
+        delay={30}>
+        The <span className="text-blue-600 dark:text-blue-500">Future of</span>{" "}
+        Hiring{" "}
+        <span className="text-blue-600 dark:text-blue-500">Begins Now</span>
+      </SplitText>
 
       <h2 className="text-lg font-light md:text-2xl">
         Next Hire connects talent with{" "}
