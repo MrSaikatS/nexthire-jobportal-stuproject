@@ -1,7 +1,18 @@
 "use client";
 
 import { useInView } from "motion/react";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+
+const getDecimalPlaces = (num: number): number => {
+  const str = num.toString();
+  if (str.includes(".")) {
+    const decimals = str.split(".")[1];
+    if (parseInt(decimals) !== 0) {
+      return decimals.length;
+    }
+  }
+  return 0;
+};
 
 interface CountUpProps {
   to: number;
@@ -33,18 +44,10 @@ export default function CountUp({
 
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
-  const getDecimalPlaces = (num: number): number => {
-    const str = num.toString();
-    if (str.includes(".")) {
-      const decimals = str.split(".")[1];
-      if (parseInt(decimals) !== 0) {
-        return decimals.length;
-      }
-    }
-    return 0;
-  };
-
-  const maxDecimals = Math.max(getDecimalPlaces(from), getDecimalPlaces(to));
+  const maxDecimals = useMemo(
+    () => Math.max(getDecimalPlaces(from), getDecimalPlaces(to)),
+    [from, to],
+  );
 
   const formatValue = useCallback(
     (latest: number) => {
@@ -131,6 +134,7 @@ export default function CountUp({
 
   return (
     <span
+      aria-live="polite"
       className={className}
       ref={ref}
     />

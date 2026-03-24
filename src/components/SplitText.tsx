@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -41,9 +42,12 @@ const SplitText: React.FC<SplitTextProps> = ({
   textAlign = "center",
   onLetterAnimationComplete,
 }) => {
-  const ref = useRef<HTMLParagraphElement>(null);
+  const ref = useRef<HTMLElement>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
   const animationCompletedRef = useRef(false);
   const onCompleteRef = useRef(onLetterAnimationComplete);
+  const fromRef = useRef(from);
+  const toRef = useRef(to);
   const [fontsLoaded, setFontsLoaded] = useState<boolean>(() => {
     if (typeof document === "undefined") return false;
     return document.fonts.status === "loaded";
@@ -53,6 +57,14 @@ const SplitText: React.FC<SplitTextProps> = ({
   useEffect(() => {
     onCompleteRef.current = onLetterAnimationComplete;
   }, [onLetterAnimationComplete]);
+
+  useEffect(() => {
+    fromRef.current = from;
+  }, [from]);
+
+  useEffect(() => {
+    toRef.current = to;
+  }, [to]);
 
   useEffect(() => {
     if (document.fonts.status !== "loaded") {
@@ -76,6 +88,11 @@ const SplitText: React.FC<SplitTextProps> = ({
           el._rbsplitInstance.revert();
         } catch {}
         el._rbsplitInstance = undefined;
+      }
+
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
       }
 
       const startPct = (1 - threshold) * 100;
@@ -110,11 +127,11 @@ const SplitText: React.FC<SplitTextProps> = ({
         reduceWhiteSpace: false,
         onSplit: (self: GSAPSplitText) => {
           assignTargets(self);
-          return gsap.fromTo(
+          const tween = gsap.fromTo(
             targets,
-            { ...from },
+            { ...fromRef.current },
             {
-              ...to,
+              ...toRef.current,
               duration,
               ease,
               stagger: delay / 1000,
@@ -133,13 +150,17 @@ const SplitText: React.FC<SplitTextProps> = ({
               force3D: true,
             },
           );
+
+          scrollTriggerRef.current = tween.scrollTrigger || null;
+          return tween;
         },
       });
       el._rbsplitInstance = splitInstance;
       return () => {
-        ScrollTrigger.getAll().forEach((st) => {
-          if (st.trigger === el) st.kill();
-        });
+        if (scrollTriggerRef.current) {
+          scrollTriggerRef.current.kill();
+          scrollTriggerRef.current = null;
+        }
         try {
           splitInstance.revert();
         } catch {}
@@ -154,8 +175,6 @@ const SplitText: React.FC<SplitTextProps> = ({
         duration,
         ease,
         splitType,
-        JSON.stringify(from),
-        JSON.stringify(to),
         threshold,
         rootMargin,
         fontsLoaded,
@@ -168,9 +187,11 @@ const SplitText: React.FC<SplitTextProps> = ({
     const style: React.CSSProperties = {
       textAlign,
       wordWrap: "break-word",
-      willChange: "transform, opacity",
     };
-    const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
+    const classes = cn(
+      "split-parent overflow-hidden inline-block whitespace-normal",
+      className,
+    );
     const Tag = (tag || "p") as React.ElementType;
 
     return (
