@@ -1,3 +1,4 @@
+import CountUp from "@/components/CountUp";
 import { BriefcaseBusinessIcon, Building2Icon, UsersIcon } from "lucide-react";
 
 const OurGrowingNetwork = () => {
@@ -7,7 +8,9 @@ const OurGrowingNetwork = () => {
       <div className="space-y-2">
         <div className="flex items-center justify-center gap-2 text-3xl font-bold">
           <UsersIcon size={30} />
-          72+
+          <span>
+            <CountUp to={72} />+
+          </span>
         </div>
         <div className="font-medium md:text-[22px]"> Active Job Seekers</div>
       </div>
@@ -16,7 +19,9 @@ const OurGrowingNetwork = () => {
       <div className="space-y-2">
         <div className="flex items-center justify-center gap-2 text-3xl font-bold">
           <Building2Icon size={30} />
-          100+
+          <span>
+            <CountUp to={100} />+
+          </span>
         </div>
         <div className="font-medium md:text-[22px]"> Active Companies</div>
       </div>
@@ -25,7 +30,9 @@ const OurGrowingNetwork = () => {
       <div className="space-y-2">
         <div className="flex items-center justify-center gap-2 text-3xl font-bold">
           <BriefcaseBusinessIcon size={30} />
-          100+
+          <span>
+            <CountUp to={100} />+
+          </span>
         </div>
         <div className="font-medium md:text-[22px]">Total Job Posts</div>
       </div>
